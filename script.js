@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 9. Form Submission via Custom PHP Backend (Resend API)
+    // 9. Form Submission via Web3Forms API
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -159,25 +159,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = btn.innerText;
             btn.innerText = 'Gönderiliyor...';
             
-            fetch('send.php', {
+            // Web3Forms API isteği
+            fetch('https://api.web3forms.com/submit', {
                 method: "POST",
                 headers: { 
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: name,
-                    phone: phone,
-                    message: message
+                    // DİKKAT: BURAYA WEB3FORMS ERİŞİM ANAHTARINI GİRECEKSİN
+                    access_key: "BURAYA_ACCESS_KEY_GELECEK",
+                    subject: "Web Sitesinden Yeni Mesaj: " + name,
+                    from_name: "Mamak Elektrik Web Sitesi",
+                    "İsim Soyisim": name,
+                    "Telefon Numarası": phone,
+                    "Mesaj / Arıza Durumu": message
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                if(data.success) {
+            .then(async (response) => {
+                let json = await response.json();
+                if(response.status == 200) {
                     btn.innerText = 'Gönderildi!';
                     form.reset();
                 } else {
+                    console.log(json);
                     btn.innerText = 'Hata Oluştu!';
-                    console.error("Resend Hatası:", data);
                 }
                 setTimeout(() => {
                     btn.innerText = originalText;

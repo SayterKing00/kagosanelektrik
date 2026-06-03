@@ -192,4 +192,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 10. Reviews Marquee Logic
+    const marqueeTrack = document.getElementById('reviewsTrack');
+    const toggleBtn = document.getElementById('marqueeToggleBtn');
+    
+    if(marqueeTrack && toggleBtn) {
+        // Clone items for infinite scroll effect
+        const reviewCards = marqueeTrack.querySelectorAll('.review-card');
+        reviewCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            marqueeTrack.appendChild(clone);
+        });
+
+        // Toggle pause/play
+        let isPaused = false;
+        toggleBtn.addEventListener('click', () => {
+            isPaused = !isPaused;
+            if(isPaused) {
+                marqueeTrack.classList.add('paused');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            } else {
+                marqueeTrack.classList.remove('paused');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            }
+        });
+    }
 });

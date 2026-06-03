@@ -191,7 +191,7 @@
                             <span>Yıllık Tecrübe</span>
                         </div>
                         <div class="stat-item">
-                            <h4 class="counter" data-target="2500">0</h4>
+                            <h4 class="counter" data-target="1000">0</h4>
                             <span>+ Mutlu Müşteri</span>
                         </div>
                     </div>
@@ -242,12 +242,18 @@
         <div class="container">
             <div class="section-header" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
                 <div class="google-rating" style="margin-bottom: 0;"><i class="fa-brands fa-google"></i><span>Google Yorumları</span></div>
-                <a href="#" target="_blank" class="btn-outline" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 15px;"><i class="fa-solid fa-pen-to-square"></i> Google'da Bizi Değerlendirin</a>
+                <a href="https://share.google/rdlSDvb8UTdIoFtDF" target="_blank" class="btn-outline" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 15px;"><i class="fa-solid fa-pen-to-square"></i> Google'da Bizi Değerlendirin</a>
                 <h2 style="margin-top: 10px;">Müşterilerimiz <span>Ne Diyor?</span></h2>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
+            
+            <div class="reviews-marquee-container">
+                <button class="marquee-btn" id="marqueeToggleBtn" aria-label="Durdur/Oynat">
+                    <i class="fa-solid fa-pause"></i>
+                </button>
+                <div class="reviews-marquee-track" id="reviewsTrack">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
                         <div class="avatar bg-blue">S</div>
                         <div class="user-info">
                             <h4>Sahan Gokebakmaz <span class="badge-new">YENİ</span></h4>
@@ -290,6 +296,7 @@
                     </div>
                     <p class="review-text">"Güzel kaliteli işçiliği var"</p>
                 </div>
+            </div>
             </div>
         </div>
     </section>

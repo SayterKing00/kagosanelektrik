@@ -78,7 +78,7 @@ span {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: 5px 0;
     z-index: 1000;
     transition: var(--transition);
     background: rgba(255, 255, 255, 0.2);
@@ -91,7 +91,7 @@ span {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border-color);
-    padding: 15px 0;
+    padding: 5px 0;
 }
 
 .nav-container {
@@ -101,19 +101,20 @@ span {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-    font-family: var(--font-heading);
     display: flex;
     align-items: center;
-    gap: 8px;
-    text-shadow: none;
     z-index: 1001; /* Above mobile menu */
 }
 
-.logo i {
-    color: var(--accent-primary);
-    filter: drop-shadow(0 0 8px var(--accent-glow));
+.logo-img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -452,10 +453,16 @@ span {
 }
 
 .hero-big-icon {
-    font-size: 5rem;
-    color: var(--accent-primary);
+    width: 85%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 15px var(--accent-glow));
+    transition: transform 0.6s ease;
+}
+
+.hero-big-icon:hover {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .card-inner h3 {

@@ -167,13 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    // DİKKAT: BURAYA WEB3FORMS ERİŞİM ANAHTARINI GİRECEKSİN
-                    access_key: "BURAYA_ACCESS_KEY_GELECEK",
+                    access_key: "0ac7530e-6273-4809-94c4-66a264722930",
                     subject: "Web Sitesinden Yeni Mesaj: " + name,
                     from_name: "Mamak Elektrik Web Sitesi",
-                    "İsim Soyisim": name,
-                    "Telefon Numarası": phone,
-                    "Mesaj / Arıza Durumu": message
+                    name: name,
+                    phone: phone,
+                    message: message
                 })
             })
             .then(async (response) => {

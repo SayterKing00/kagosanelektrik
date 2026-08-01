@@ -81,14 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
         counters.forEach(counter => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
+                const countText = counter.innerText.replace(/[^0-9]/g, '');
+                const count = +countText;
                 const inc = target / speed;
+                const suffix = counter.getAttribute('data-suffix') || '';
 
                 if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
+                    counter.innerText = Math.ceil(count + inc) + suffix;
                     setTimeout(updateCount, 15);
                 } else {
-                    counter.innerText = target;
+                    counter.innerText = target + suffix;
                 }
             };
             updateCount();
